@@ -1,6 +1,6 @@
 {
   "name": "keq-exception",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "Request exception for keq",
   "main": "lib/index.js",
   "scripts": {
