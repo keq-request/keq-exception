@@ -1,0 +1,77 @@
+{
+  "name": "keq-exception",
+  "version": "0.0.1",
+  "description": "Request exception for keq",
+  "main": "lib/index.js",
+  "scripts": {
+    "test": "ava",
+    "lint": "eslint \"src/**/*.ts\" \"tests/**/*.ts\"  --fix",
+    "prepare": "is-ci || husky install",
+    "ca": "git add -A && git-cz -av",
+    "ci": "git-cz",
+    "release": "standard-version",
+    "release:alpha": "standard-version --prerelease alpha",
+    "release:first": "standard-version --first-release",
+    "test:debug": "ava --verbose",
+    "test:update": "ava -u",
+    "report": "nyc --reporter=html --reporter=text-summary --skip-full ava",
+    "coveralls": "nyc npm test && nyc report --reporter=text-lcov | coveralls",
+    "prepublishOnly": "npm run build",
+    "clean": "rm -rf ./lib/*",
+    "prebuild": "npm run clean",
+    "build:es": "ttsc -p build/tsconfig.es.json && npm run copyfile:es",
+    "build:lib": "ttsc -p build/tsconfig.lib.json && npm run copyfile:lib",
+    "copyfile:es": "copyfiles -e \"@(build|es|lib|node_modules|tests|doc)/**/*.!(ts)\" -e \"@(README.md|CHANGELOG.md|ava.config.js|backers.md)\" \"**/*.!(ts)\" es",
+    "copyfile:lib": "copyfiles -e \"@(build|es|lib|node_modules|tests|doc)/**/*.!(ts)\" -e \"@(README.md|CHANGELOG.md|ava.config.js|backers.md)\" \"**/*.!(ts)\" lib",
+    "build": "npm run build:lib && npm run build:es",
+    "prewatch": "npm run copyfile:lib",
+    "watch": "NODE_ENV=development ttsc -p build/tsconfig.lib.json -w"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/keq-request/keq-exception.git"
+  },
+  "keywords": [
+    "keq",
+    "request",
+    "exception",
+    "fetch"
+  ],
+  "author": "Val.istar.Guo <val.istar.guo@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/keq-request/keq-exception/issues"
+  },
+  "homepage": "https://github.com/keq-request/keq-exception#readme",
+  "devDependencies": {
+    "@commitlint/cli": "^12.1.4",
+    "@commitlint/config-conventional": "^12.1.4",
+    "@istanbuljs/nyc-config-typescript": "^1.0.1",
+    "@typescript-eslint/eslint-plugin": "^4.15.2",
+    "@typescript-eslint/parser": "^4.15.2",
+    "ava": "^3.10.1",
+    "commitizen": "^4.2.4",
+    "copyfiles": "^2.4.1",
+    "coveralls": "^3.1.0",
+    "cz-conventional-changelog": "^3.3.0",
+    "eslint": "^7.20.0",
+    "husky": "^5.2.0",
+    "is-ci": "^3.0.0",
+    "keq": "^1.8.0",
+    "lint-staged": "^11.0.0",
+    "mili": "^4.7.5",
+    "nyc": "^15.1.0",
+    "sinon": "^10.0.0",
+    "standard-version": "^9.3.0",
+    "ts-node": "^9.1.1",
+    "ttypescript": "^1.5.12",
+    "typescript": "^4.2.2",
+    "typescript-transform-paths": "^2.2.3"
+  },
+  "module": "es/index.js",
+  "types": "lib/index.d.ts",
+  "dependencies": {
+    "@types/node": "^14.14.31",
+    "ts-custom-error": "^3.2.0"
+  }
+}
