@@ -3,7 +3,7 @@
 [![version](https://img.shields.io/npm/v/keq-exception.svg?style=flat-square)](https://www.npmjs.com/package/keq-exception)
 [![downloads](https://img.shields.io/npm/dm/keq-exception.svg?style=flat-square)](https://www.npmjs.com/package/keq-exception)
 [![license](https://img.shields.io/npm/l/keq-exception.svg?style=flat-square)](https://www.npmjs.com/package/keq-exception)
-[![dependencies](https://img.shields.io/david/keq-request/keq-exception.svg?style=flat-square)](https://www.npmjs.com/package/keq-exception)
+[![dependencies](https://img.shields.io/librariesio/github/keq-request/keq-exception.svg?style=flat-square)](https://www.npmjs.com/package/keq-exception)
 [![coveralls](https://img.shields.io/coveralls/github/keq-request/keq-exception.svg?style=flat-square)](https://coveralls.io/github/keq-request/keq-exception)
 
 
