@@ -1,7 +1,7 @@
-import { Middleware } from 'keq'
+import { KeqMiddleware } from 'keq'
 
 
-export function catchException(handler: (e: unknown) => void): Middleware {
+export function catchException(handler: (e: unknown) => void): KeqMiddleware {
   return async(ctx, next) => {
     try {
       await next()

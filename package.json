@@ -2,81 +2,54 @@
   "name": "keq-exception",
   "version": "0.0.3",
   "description": "Request exception for keq",
-  "main": "lib/src/index.js",
-  "module": "es/src/index.js",
-  "types": "lib/src/index.d.ts",
-  "scripts": {
-    "test": "npm run clean && npm run build:test && c8 ava",
-    "test:debug": "ava --verbose",
-    "test:update": "ava -u",
-    "lint": "eslint \"src/**/*.ts\" \"tests/**/*.ts\"  --fix",
-    "prepare": "is-ci || husky install",
-    "ca": "git add -A && git-cz -av",
-    "ci": "git-cz",
-    "release": "standard-version",
-    "release:alpha": "standard-version --prerelease alpha",
-    "release:first": "standard-version --first-release",
-    "report": "npm run build:test && c8 --reporter=html --reporter=text-summary --skip-full ava",
-    "coveralls": "c8 report --reporter=text-lcov | coveralls",
-    "prepublishOnly": "npm run build",
-    "clean": "rm -rf ./lib/* && rm -rf ./es/*",
-    "prebuild": "npm run clean",
-    "build:es": "ttsc -p build/tsconfig.es.json && npm run copyfile:es",
-    "build:lib": "ttsc -p build/tsconfig.lib.json && npm run copyfile:lib",
-    "copyfile:es": "copyfiles -u 1 \"src/**/*.!(ts)\" es/src",
-    "copyfile:lib": "copyfiles -u 1 \"src/**/*.!(ts)\" lib/src",
-    "build": "npm run build:lib && npm run build:es",
-    "prewatch": "npm run copyfile:lib",
-    "watch": "NODE_ENV=development ttsc -p build/tsconfig.lib.json -w",
-    "build:test": "ttsc -p build/tsconfig.test.json && npm run copyfile:lib"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/keq-request/keq-exception.git"
-  },
   "keywords": [
     "keq",
     "request",
     "exception",
     "fetch"
   ],
-  "author": "Val.istar.Guo <val.istar.guo@gmail.com>",
-  "license": "MIT",
+  "homepage": "https://github.com/keq-request/keq-exception#readme",
   "bugs": {
     "url": "https://github.com/keq-request/keq-exception/issues"
   },
-  "homepage": "https://github.com/keq-request/keq-exception#readme",
-  "devDependencies": {
-    "@commitlint/cli": "^12.1.4",
-    "@commitlint/config-conventional": "^12.1.4",
-    "@istanbuljs/nyc-config-typescript": "^1.0.1",
-    "@typescript-eslint/eslint-plugin": "^4.15.2",
-    "@typescript-eslint/parser": "^4.15.2",
-    "ava": "^4.3.0",
-    "commitizen": "^4.2.4",
-    "copyfiles": "^2.4.1",
-    "coveralls": "^3.1.0",
-    "cz-conventional-changelog": "^3.3.0",
-    "eslint": "^7.20.0",
-    "husky": "^5.2.0",
-    "is-ci": "^3.0.0",
-    "keq": "^1.8.0",
-    "mili": "^4.7.5",
-    "nyc": "^15.1.0",
-    "sinon": "^14.0.0",
-    "standard-version": "^9.3.0",
-    "ts-node": "^10.8.1",
-    "ttypescript": "^1.5.13",
-    "typescript": "^4.7.4",
-    "typescript-transform-paths": "^3.3.1",
-    "c8": "^7.12.0",
-    "ajv": "^8.12.0"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/keq-request/keq-exception.git"
+  },
+  "license": "MIT",
+  "author": "Val.istar.Guo <val.istar.guo@gmail.com>",
+  "main": "dist/umd/src/index.js",
+  "types": "dist/esm/src/index.d.ts",
+  "module": "dist/esm/src/index.js",
+  "scripts": {
+    "build": "npm run clean && ./build/build.sh",
+    "clean": "rm -rf ./dist/*",
+    "dev": "npm run clean && ./build/watch.sh",
+    "prepare": "ts-patch install -s && is-ci || husky install",
+    "prepublishOnly": "npm run build",
+    "release": "standard-version",
+    "release:alpha": "standard-version --prerelease alpha",
+    "test": "jest"
   },
   "dependencies": {
-    "@types/node": "^14.14.31",
-    "ts-custom-error": "^3.2.0"
+    "ts-custom-error": "^3.3.1"
+  },
+  "devDependencies": {
+    "@types/node": "^20.8.9",
+    "@commitlint/cli": "^18.2.0",
+    "@commitlint/config-conventional": "^18.1.0",
+    "@typescript-eslint/eslint-plugin": "^6.9.0",
+    "@typescript-eslint/parser": "^6.9.0",
+    "coveralls": "^3.1.1",
+    "eslint": "^8.52.0",
+    "husky": "^8.0.3",
+    "is-ci": "^3.0.1",
+    "keq": "^2.0.3",
+    "standard-version": "^9.5.0",
+    "typescript": "^5.2.2",
+    "typescript-transform-paths": "^3.4.6"
   },
   "peerDependencies": {
-    "keq": "^1"
+    "keq": "^2"
   }
 }
