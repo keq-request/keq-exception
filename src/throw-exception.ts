@@ -19,12 +19,12 @@ export interface ThrowExceptionKeqMiddlewareOptions {
 
 export function throwException(options: ThrowExceptionKeqMiddlewareOptions = {}): KeqMiddleware {
   const {
-    condition = ctx => (ctx.response && ctx.response.status >= 400) as boolean,
-    statusCode = ctx => (ctx.response?.status ?? 500),
-    message = ctx => (ctx.response?.text() ?? 'exception') as Promise<string>,
+    condition = (ctx) => (ctx.response && ctx.response.status >= 400) as boolean,
+    statusCode = (ctx) => (ctx.response?.status ?? 500),
+    message = (ctx) => (ctx.response?.text() ?? 'exception') as Promise<string>,
   } = options
 
-  return async(ctx, next) => {
+  return async (ctx, next) => {
     await next()
 
     if (condition(ctx)) {

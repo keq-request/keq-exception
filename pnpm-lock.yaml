@@ -1,8 +1,10 @@
 lockfileVersion: 5.4
 
 specifiers:
+  '@buka/eslint-config': ^1.4.1
   '@commitlint/cli': ^18.2.0
   '@commitlint/config-conventional': ^18.1.0
+  '@rushstack/eslint-patch': ^1.5.1
   '@types/node': ^20.8.9
   '@typescript-eslint/eslint-plugin': ^6.9.0
   '@typescript-eslint/parser': ^6.9.0
@@ -17,12 +19,14 @@ specifiers:
   typescript-transform-paths: ^3.4.6
 
 dependencies:
-  '@types/node': 20.8.9
   ts-custom-error: 3.3.1
 
 devDependencies:
+  '@buka/eslint-config': 1.4.1_wvzjg5u24gpagwvvvrjviwp4tu
   '@commitlint/cli': 18.2.0_typescript@5.2.2
   '@commitlint/config-conventional': 18.1.0
+  '@rushstack/eslint-patch': 1.5.1
+  '@types/node': 20.8.9
   '@typescript-eslint/eslint-plugin': 6.9.0_kdkkxsk7lol6ssd3nogxezhooq
   '@typescript-eslint/parser': 6.9.0_i3vkbg2fztj7jno7sh3heeojya
   coveralls: 3.1.1
@@ -61,6 +65,16 @@ packages:
       '@babel/helper-validator-identifier': 7.22.20
       chalk: 2.4.2
       js-tokens: 4.0.0
+    dev: true
+
+  /@buka/eslint-config/1.4.1_wvzjg5u24gpagwvvvrjviwp4tu:
+    resolution: {integrity: sha512-LRPOj79AbGllSnoGM4ftlbDjSiwILRZedXM5iecWAHEaK8DSy/Lm2+R5w9dY46V4uBgODlu28sj3eGyUuLo5aA==}
+    peerDependencies:
+      '@typescript-eslint/eslint-plugin': '*'
+      '@typescript-eslint/parser': '*'
+    dependencies:
+      '@typescript-eslint/eslint-plugin': 6.9.0_kdkkxsk7lol6ssd3nogxezhooq
+      '@typescript-eslint/parser': 6.9.0_i3vkbg2fztj7jno7sh3heeojya
     dev: true
 
   /@commitlint/cli/18.2.0_typescript@5.2.2:
@@ -310,6 +324,10 @@ packages:
       fastq: 1.15.0
     dev: true
 
+  /@rushstack/eslint-patch/1.5.1:
+    resolution: {integrity: sha512-6i/8UoL0P5y4leBIGzvkZdS85RDMG9y1ihZzmTZQ5LdHUYmZ7pKFoj8X0236s3lusPs1Fa5HTQUpwI+UfTcmeA==}
+    dev: true
+
   /@types/json-schema/7.0.14:
     resolution: {integrity: sha512-U3PUjAudAdJBeC2pgN8uTIKgxrb4nlDF3SF0++EldXQvQBGkpFZMSnwQiIoDU77tv45VgNkl/L4ouD+rEomujw==}
     dev: true
@@ -328,7 +346,7 @@ packages:
     resolution: {integrity: sha512-UzykFsT3FhHb1h7yD4CA4YhBHq545JC0YnEz41xkipN88eKQtL6rSgocL5tbAP6Ola9Izm/Aw4Ora8He4x0BHg==}
     dependencies:
       undici-types: 5.26.5
-    dev: false
+    dev: true
 
   /@types/normalize-package-data/2.4.3:
     resolution: {integrity: sha512-ehPtgRgaULsFG8x0NeYJvmyH1hmlfsNLujHe9dQEia/7MAJYdzMSi19JtchUHjmBA6XC/75dK55mzZH+RyieSg==}
@@ -3187,6 +3205,7 @@ packages:
 
   /undici-types/5.26.5:
     resolution: {integrity: sha512-JlCMO+ehdEIKqlFxk6IfVoAUVmgz7cU7zD/h9XZ0qzeosSHmUJVOzSQvvYSYWXkFXC+IfLKSIffhv0sVZup6pA==}
+    dev: true
 
   /universalify/2.0.0:
     resolution: {integrity: sha512-hAZsKq7Yy11Zu1DE0OzWjw7nnLZmJZYTDZZyEFHZdUhV8FkH5MCfoU1XMaxXovpyW5nq5scPqq0ZDP9Zyl04oQ==}
