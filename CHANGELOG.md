@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.0.0](https://github.com/keq-request/keq-exception/compare/v0.0.3...v2.0.0) (2023-10-30)
+
+
+### ⚠ BREAKING CHANGES
+
+* drop support keq@1
+
+### Features
+
+* support keq@2 ([d7dd28a](https://github.com/keq-request/keq-exception/commit/d7dd28aebab9f4deaa8a7c2870196805c6d4ddad))
+
 ### [0.0.3](https://www.github.com/keq-request/keq-exception/compare/v0.0.2...v0.0.3) (2023-02-16)
 
 
