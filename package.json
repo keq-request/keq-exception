@@ -25,7 +25,7 @@
     "build": "npm run clean && ./build/build.sh",
     "clean": "rm -rf ./dist/*",
     "dev": "npm run clean && ./build/watch.sh",
-    "prepare": "ts-patch install -s && is-ci || husky install",
+    "prepare": "ts-patch install -s && is-ci || husky",
     "prepublishOnly": "npm run build",
     "release": "standard-version",
     "release:alpha": "standard-version --prerelease alpha",
@@ -35,21 +35,21 @@
     "ts-custom-error": "^3.3.1"
   },
   "devDependencies": {
-    "@buka/eslint-config": "^1.4.1",
-    "@commitlint/cli": "^18.2.0",
-    "@commitlint/config-conventional": "^18.1.0",
-    "@rushstack/eslint-patch": "^1.5.1",
-    "@types/node": "^20.8.9",
-    "@typescript-eslint/eslint-plugin": "^6.9.0",
-    "@typescript-eslint/parser": "^6.9.0",
+    "@buka/eslint-config": "^1.6.4",
+    "@commitlint/cli": "^19.3.0",
+    "@commitlint/config-conventional": "^19.2.2",
+    "@rushstack/eslint-patch": "^1.10.2",
+    "@types/node": "^20.12.7",
+    "@typescript-eslint/eslint-plugin": "^6.21.0",
+    "@typescript-eslint/parser": "^6.21.0",
     "coveralls": "^3.1.1",
-    "eslint": "^8.52.0",
-    "husky": "^8.0.3",
+    "eslint": "^8.57.0",
+    "husky": "^9.0.11",
     "is-ci": "^3.0.1",
-    "keq": "^2.0.3",
+    "keq": "^2.3.2",
     "standard-version": "^9.5.0",
-    "typescript": "^5.2.2",
-    "typescript-transform-paths": "^3.4.6"
+    "typescript": "^5.4.5",
+    "typescript-transform-paths": "^3.4.7"
   },
   "peerDependencies": {
     "keq": "^2"
