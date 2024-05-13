@@ -24,7 +24,7 @@ export function throwException(options: ThrowExceptionKeqMiddlewareOptions = {})
     message = (ctx) => (ctx.response?.text() ?? 'exception') as Promise<string>,
   } = options
 
-  return async (ctx, next) => {
+  return async function throwException(ctx, next) {
     await next()
 
     if (condition(ctx)) {
