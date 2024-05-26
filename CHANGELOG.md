@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.0.0](https://github.com/keq-request/keq-exception/compare/v2.1.2...v3.0.0) (2024-05-26)
+
+
+### ⚠ BREAKING CHANGES
+
+* throwException parameter changes
+
+### Features
+
+* throw error takes effect when retrying ([5ff1fb5](https://github.com/keq-request/keq-exception/commit/5ff1fb5b3ebca23e63111bb7ace9030da0d2d078))
+
 ## [2.1.2](https://github.com/keq-request/keq-exception/compare/v2.1.1...v2.1.2) (2024-05-13)
 
 
