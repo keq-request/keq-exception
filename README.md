@@ -1,51 +1,44 @@
 # keq-exception
 
-
 [![version](https://img.shields.io/npm/v/keq-exception.svg?style=for-the-badge)](https://www.npmjs.com/package/keq-exception)
 [![downloads](https://img.shields.io/npm/dm/keq-exception.svg?style=for-the-badge)](https://www.npmjs.com/package/keq-exception)
 [![license](https://img.shields.io/npm/l/keq-exception.svg?style=for-the-badge)](https://www.npmjs.com/package/keq-exception)
 [![dependencies](https://img.shields.io/librariesio/release/npm/keq-exception?style=for-the-badge)](https://www.npmjs.com/package/keq-exception)
+[![codecov](https://img.shields.io/codecov/c/gh/keq-request/keq-exception?logo=codecov&token=HWP4GTMWV8&style=for-the-badge)](https://codecov.io/gh/keq-request/keq-exception)
 
-
-<!-- description -->
 The keq-exception module is a package that can be used to throw and catch exceptions in keq-request.
-<!-- description -->
 
 ## Usage
 
-<!-- usage -->
 ```typescript
-import { request } from 'keq'
-import { throwException, catchException, RequestException } from 'keq-exception'
-
+import { request } from "keq";
+import {
+  throwException,
+  catchException,
+  RequestException,
+} from "keq-exception";
 
 request
-  .use(catchException(err => {
-    if (err instanceof RequestException) {
-      context.redirect('/login')
-    }
+  .use(
+    catchException((err) => {
+      if (err instanceof RequestException) {
+        context.redirect("/login");
+      }
 
-    context.redirect('/login')
-    throw err
-  }))
-  .use(throwException({
-    // there is the default options
-    // wether or not to redirect to throw request exception
-    condition: () => ctx => ctx.response && ctx.response.status >= 400,
-    // the status code of request exception
-    statusCode: ctx => ctx.response.status,
-    // the message of request exception
-    message: ctx => ctx.response.text(),
-  }))
+      context.redirect("/login");
+      throw err;
+    })
+  )
+  // Callback will run after `await next()`.
+  // This way you can throw errors based on the response body.
+  .use(
+    throwException(async (ctx) => {
+      if (ctx.response && ctx.response.status >= 400) {
+        const body = await ctx.response.json();
+        throw new RequestException(ctx.response.status, body.message);
+      }
+    })
+  );
 ```
 
 > The order of keq middleware is important(like an onion).
-<!-- usage -->
-
-<!-- addition --><!-- addition -->
-
-
-## Contributing & Development
-
-If there is any doubt, it is very welcome to discuss the issue together.
-Please read [Contributor Covenant Code of Conduct](.github/CODE_OF_CONDUCT.md) and [CONTRIBUTING](.github/CONTRIBUTING.md).

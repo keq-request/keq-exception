@@ -1,35 +1,30 @@
 import { KeqContext, KeqMiddleware } from 'keq'
-import { RequestException } from './exception'
 
 
-export interface ThrowExceptionKeqMiddlewareOptions {
-  /**
-   * @default 'ctx => ctx.response && ctx.response.status >= 400'
-   */
-  condition?: (ctx: KeqContext) => boolean | Promise<boolean>
-  /**
-   * @default 'ctx => ctx.response.status'
-   */
-  statusCode?: (ctx: KeqContext) => number | Promise<number>
-  /**
-   * @default 'ctx => ctx.response.text()'
-   */
-  message?: (ctx: KeqContext) => string | Promise<string>
-}
+export type Check = (ctx: KeqContext) => void | Promise<void>
 
-export function throwException(options: ThrowExceptionKeqMiddlewareOptions = {}): KeqMiddleware {
-  const {
-    condition = (ctx) => (ctx.response && ctx.response.status >= 400) as boolean,
-    statusCode = (ctx) => (ctx.response?.status ?? 500),
-    message = (ctx) => (ctx.response?.text() ?? 'exception') as Promise<string>,
-  } = options
-
+export function throwException(check: Check): KeqMiddleware {
   return async function throwException(ctx, next) {
+    const retryOn = typeof ctx.options.retryOn === 'function'
+      ? ctx.options.retryOn
+      : undefined
+
+    ctx.options.retryOn = async (attempt, error, context) => {
+      if (retryOn && await retryOn(attempt, error, context)) {
+        return true
+      }
+
+      try {
+        await check(context)
+      } catch (e) {
+        return true
+      }
+
+      return false
+    }
+
     await next()
 
-    if (condition(ctx)) {
-      throw new RequestException(await statusCode(ctx), await message(ctx))
-    }
+    await check(ctx)
   }
 }
-
