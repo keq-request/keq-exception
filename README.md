@@ -42,3 +42,11 @@ request
 ```
 
 > The order of keq middleware is important(like an onion).
+
+### RequestException(statusCode[, message, retry])
+
+| parameter  | default | description                                  |
+| :--------- | :------ | -------------------------------------------- |
+| statusCode | -       | Error code                                   |
+| message    | `''`    | Error message                                |
+| retry      | `true`  | Whether the thrown error can trigger a retry |

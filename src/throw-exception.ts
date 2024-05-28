@@ -1,4 +1,5 @@
 import { KeqContext, KeqMiddleware } from 'keq'
+import { RequestException } from './exception.js'
 
 
 export type Check = (ctx: KeqContext) => void | Promise<void>
@@ -17,7 +18,11 @@ export function throwException(check: Check): KeqMiddleware {
       try {
         await check(context)
       } catch (e) {
-        return true
+        if (e instanceof RequestException && e.retry) {
+          return true
+        }
+
+        return false
       }
 
       return false
