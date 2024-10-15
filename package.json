@@ -38,6 +38,7 @@
     "test": "jest"
   },
   "dependencies": {
+    "jest-environment-jsdom": "^29.7.0",
     "ts-custom-error": "^3.3.1"
   },
   "devDependencies": {
