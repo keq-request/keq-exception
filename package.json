@@ -2,6 +2,7 @@
   "name": "keq-exception",
   "version": "3.1.0",
   "description": "Request exception for keq",
+  "packageManager": "pnpm@9.12.1",
   "keywords": [
     "keq",
     "request",
