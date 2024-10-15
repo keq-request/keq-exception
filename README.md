@@ -6,47 +6,52 @@
 [![dependencies](https://img.shields.io/librariesio/release/npm/keq-exception?style=for-the-badge)](https://www.npmjs.com/package/keq-exception)
 [![codecov](https://img.shields.io/codecov/c/gh/keq-request/keq-exception?logo=codecov&token=HWP4GTMWV8&style=for-the-badge)](https://codecov.io/gh/keq-request/keq-exception)
 
-The keq-exception module is a package that can be used to throw and catch exceptions in keq-request.
+[Document EN]: https://keq-request.github.io/guide/libraries/keq-exception
+[Document CN]: https://keq-request.github.io/zh/guide/libraries/keq-exception
+
+[**Document**][Document EN] | [**中文文档**][Document CN]
+
+`Middleware` for throwing/catching exceptions. And it can control whether the exception trigger `retry`.
 
 ## Usage
 
+<!-- prettier-ignore -->
 ```typescript
-import { request } from "keq";
+import { request } from "keq"
 import {
   throwException,
   catchException,
   RequestException,
-} from "keq-exception";
+} from "keq-exception"
 
 request
   .use(
     catchException((err) => {
-      if (err instanceof RequestException) {
-        context.redirect("/login");
+      if (err instanceof RequestException && err.code === 401) {
+        context.redirect("/login")
+        return
       }
 
-      context.redirect("/login");
-      throw err;
+      throw err
     })
   )
+
   // Callback will run after `await next()`.
   // This way you can throw errors based on the response body.
   .use(
     throwException(async (ctx) => {
       if (ctx.response && ctx.response.status >= 400) {
-        const body = await ctx.response.json();
-        throw new RequestException(ctx.response.status, body.message);
+        const body = await ctx.response.json()
+        throw new RequestException(ctx.response.status, body.message)
       }
     })
-  );
+  )
 ```
 
-> The order of keq middleware is important(like an onion).
+### RequestException(statusCode[, errorMessage[, retry]])
 
-### RequestException(statusCode[, message, retry])
-
-| parameter  | default | description                                  |
-| :--------- | :------ | -------------------------------------------- |
-| statusCode | -       | Error code                                   |
-| message    | `''`    | Error message                                |
-| retry      | `true`  | Whether the thrown error can trigger a retry |
+| **Parameter** | **Default** | **Description**                              |
+| :------------ | :---------- | -------------------------------------------- |
+| statusCode    | -           | Error code                                   |
+| message       | `''`        | Error message                                |
+| retry         | `true`      | Whether the thrown error can trigger a retry |
