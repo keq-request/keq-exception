@@ -71,10 +71,7 @@ test('throwException()', async () => {
     request
       .get('https://example.com')
       .option('fetchAPI', fetchAPIError)
-      .retry(1, 0, (attempt, error) => {
-        if (error) return true
-        return false
-      }),
+      .retry(1, 0),
   ).rejects.toThrow(Error)
 
   await expect(
