@@ -6,6 +6,7 @@
     "keq",
     "request",
     "exception",
+    "error",
     "fetch"
   ],
   "homepage": "https://github.com/keq-request/keq-exception#readme",
@@ -21,6 +22,10 @@
   "main": "dist/umd/src/index.js",
   "types": "dist/esm/src/index.d.ts",
   "module": "dist/esm/src/index.js",
+  "exports": {
+    "require": "./dist/umd/src/index.js",
+    "import": "./dist/esm/src/index.js"
+  },
   "scripts": {
     "build": "npm run clean && ./build/build.sh",
     "clean": "rm -rf ./dist/*",
