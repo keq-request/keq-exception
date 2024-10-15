@@ -8,9 +8,6 @@ importers:
 
   .:
     dependencies:
-      jest-environment-jsdom:
-        specifier: ^29.7.0
-        version: 29.7.0
       ts-custom-error:
         specifier: ^3.3.1
         version: 3.3.1
@@ -42,6 +39,9 @@ importers:
       jest:
         specifier: ^29.7.0
         version: 29.7.0(@types/node@20.12.7)(ts-node@10.9.2(@types/node@20.12.7)(typescript@5.4.5))
+      jest-environment-jsdom:
+        specifier: ^29.7.0
+        version: 29.7.0
       jest-mock:
         specifier: ^29.7.0
         version: 29.7.0
