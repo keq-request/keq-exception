@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.1.2](https://github.com/keq-request/keq-exception/compare/v3.1.1...v3.1.2) (2024-10-15)
+
+
+### Bug Fixes
+
+* move jest-environment-jsdom to dev deps ([7b316de](https://github.com/keq-request/keq-exception/commit/7b316de1c7720d2f68fb7c63002a595e6cf93798))
+
 ## [3.1.1](https://github.com/keq-request/keq-exception/compare/v3.1.0...v3.1.1) (2024-10-15)
 
 
