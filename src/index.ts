@@ -1,4 +1,4 @@
-export * from './exception'
+export * from './exception.js'
 
-export * from './throw-exception'
-export * from './catch-exception'
+export * from './throw-exception.js'
+export * from './catch-exception.js'
