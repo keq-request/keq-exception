@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.1.3](https://github.com/keq-request/keq-exception/compare/v3.1.2...v3.1.3) (2024-12-18)
+
+
+### Bug Fixes
+
+* update module exports to include file extensions for esm ([ba42c19](https://github.com/keq-request/keq-exception/commit/ba42c198fe75c2fdd8ad4b6325675fe7920cf45b))
+
 ## [3.1.2](https://github.com/keq-request/keq-exception/compare/v3.1.1...v3.1.2) (2024-10-15)
 
 
