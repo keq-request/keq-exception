@@ -1,12 +1,12 @@
 import { KeqMiddleware } from 'keq'
 
 
-export function catchException(handler: (e: unknown) => void): KeqMiddleware {
+export function catchException(handler: (e: unknown) => void | Promise<void>): KeqMiddleware {
   return async function catchException(ctx, next) {
     try {
       await next()
     } catch (err) {
-      handler(err)
+      await handler(err)
     }
   }
 }
