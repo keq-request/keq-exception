@@ -4,7 +4,7 @@ import { KeqContext } from 'keq'
 
 
 test('catchException(handler)', async () => {
-  const handler = jest.fn()
+  const handler = jest.fn(() => {})
   const middleware = catchException(handler)
 
   const err = new Error()

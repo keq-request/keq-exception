@@ -38,7 +38,8 @@
     "test": "jest"
   },
   "dependencies": {
-    "ts-custom-error": "^3.3.1"
+    "ts-custom-error": "^3.3.1",
+    "type-fest": "^4.41.0"
   },
   "devDependencies": {
     "@buka/eslint-config": "^2.1.1",
