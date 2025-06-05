@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.1.4](https://github.com/keq-request/keq-exception/compare/v3.1.3...v3.1.4) (2025-06-05)
+
+
+### Bug Fixes
+
+* update catchException handler to support async functions ([18dd4f2](https://github.com/keq-request/keq-exception/commit/18dd4f25201c9e8eaaa20782b94bc78906807262))
+
 ## [3.1.3](https://github.com/keq-request/keq-exception/compare/v3.1.2...v3.1.3) (2024-12-18)
 
 
