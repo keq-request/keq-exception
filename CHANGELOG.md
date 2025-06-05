@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.2.0](https://github.com/keq-request/keq-exception/compare/v3.1.4...v3.2.0) (2025-06-05)
+
+
+### Features
+
+* add type-fest dependency and update Promisable type usage in catchException and throwException ([7c3cc96](https://github.com/keq-request/keq-exception/commit/7c3cc96a149914afac090ada383010fa4482c311))
+
 ## [3.1.4](https://github.com/keq-request/keq-exception/compare/v3.1.3...v3.1.4) (2025-06-05)
 
 
